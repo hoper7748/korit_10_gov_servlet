@@ -26,11 +26,26 @@ public class UserController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         List<User> users = userService.getAll(); // 받은 모든 사용자 리스트 응답.
+        User user1 = null , user2 = null;
+        String p1 = req.getParameter("id");
+        String p2 = req.getParameter("username");
+        System.out.println(p1);
+        System.out.println(p2);
+        user1 = userService.getFindById(Integer.parseInt(p1));
+        System.out.println(user1);
 
+        System.out.println("1-1");
         ResponseEntity.builder()
                 .status(200)
-                .body(users)
+                .body(user1)
                 .build()
                 .response(resp);
+
+//
+//        ResponseEntity.builder()
+//                .status(200)
+//                .body(users)
+//                .build()
+//                .response(resp);
     }
 }

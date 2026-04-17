@@ -28,20 +28,36 @@ public class UserRepository {
         }
     }
 
+
+    // FileReader로 저장해야함 Write를 하란 말
     public User save(){
+
+
         return null;
     }
 
     public User findById(int id){
+        System.out.println(users);
+        for(User user : users){
+            System.out.println(user +" " + id);
+            if(user.get() == id){
+                return user;
+            }
+        }
         return null;
     }
 
     public User findByUsername(String username){
+        for(User user : users){
+            if(user.getUsername().equals(username))
+                return user;
+        }
         return null;
     }
 
     public List<User> findByAll(){
-        return List.of();
+
+        return users;
     }
 
 
