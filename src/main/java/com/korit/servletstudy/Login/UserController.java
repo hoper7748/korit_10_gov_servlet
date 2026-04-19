@@ -24,7 +24,7 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        System.out.println("UserController Event");
         List<User> users = userService.getAll(); // 받은 모든 사용자 리스트 응답.
         User user1 = null , user2 = null;
         String p1 = req.getParameter("id");
@@ -32,15 +32,15 @@ public class UserController extends HttpServlet {
         System.out.println(p1);
         System.out.println(p2);
         user1 = userService.getFindById(Integer.parseInt(p1));
-        System.out.println(user1);
+        user2 = userService.getFindByUsername(p2);
+//        System.out.println(user1);
 
-        System.out.println("1-1");
         ResponseEntity.builder()
                 .status(200)
-                .body(user1)
+                .body(user2)
                 .build()
                 .response(resp);
-
+        userService.save();
 //
 //        ResponseEntity.builder()
 //                .status(200)

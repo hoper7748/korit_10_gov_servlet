@@ -16,18 +16,20 @@ public class UserService {
     }
 
     public List<User> getAll() {
-
-
         return repository.findByAll();
     }
 
     public User getFindById(int id){
-        System.out.println("ss");
         return repository.findById(id);
     }
 
     public User getFindByUsername(String username){
-        System.out.println("dd");
         return repository.findByUsername(username);
+    }
+
+    public void save() {
+        System.out.println("저장 시작");
+        repository.save();
+        System.out.println("저장 완료");
     }
 }

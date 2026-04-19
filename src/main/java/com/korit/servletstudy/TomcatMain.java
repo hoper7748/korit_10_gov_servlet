@@ -18,6 +18,7 @@ class Req {
 class Resp{
 
 }
+
 @Data
 class TestServlet {
     private static TestServlet instance;
@@ -42,11 +43,11 @@ class TestServlet {
 public class TomcatMain {
     public static void main(String[] args) {
         String requestUrl = "https://localhost8080/backserver/first";
-
         TestServlet testServlet = TestServlet.getInstance();
         testServlet.Init();
         testServlet.service(new Req(requestUrl, new Resp()), new Resp());
 
     }
+
 
 }
