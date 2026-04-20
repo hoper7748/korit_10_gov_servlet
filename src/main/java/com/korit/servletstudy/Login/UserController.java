@@ -37,7 +37,7 @@ public class UserController extends HttpServlet {
 
         ResponseEntity.builder()
                 .status(200)
-                .body(user2)
+                .body(user1)
                 .build()
                 .response(resp);
         userService.save();
