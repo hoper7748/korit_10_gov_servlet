@@ -18,7 +18,7 @@ public class SecurityFilter implements Filter {
         System.out.println(uri);
         String projectNameIgnoreUri = uri.substring(uri.indexOf("/",1));
         System.out.println(projectNameIgnoreUri);
-        if(projectNameIgnoreUri.startsWith("/api/auth")){
+        if(projectNameIgnoreUri.startsWith("/api/auth") || projectNameIgnoreUri.startsWith("/api/html")){
             chain.doFilter(request, response);
             return;
         }
